@@ -59,65 +59,65 @@ int main(int argc, char *argv[]) {
 
   auto node = rclcpp::Node::make_shared("ydlidar_node");
   std::string port = "/dev/ttyUSB0";
-  int baudrate = 230400;
+  int baudrate = 128000;
   std::string frame_id = "laser_frame";
-  bool reversion = true;
+  bool reversion = false;
   bool resolution_fixed = true;
   bool auto_reconnect = true;
   double angle_max = 180;
   double angle_min = -180;
-  int samp_rate = 9;
+  int samp_rate = 5;
   std::string list = "";
-  double max_range = 64.0;
-  double min_range = 0.01;
+  double max_range = 10.0;
+  double min_range = 0.12;
   double frequency = 10.0;
   bool m_singleChannel = false;
   bool m_isToFLidar = false;
-  bool m_Inverted = true;
+  bool m_Inverted = false;
 
-  node->declare_parameter("port");
+  node->declare_parameter("port", port);
   node->get_parameter("port", port);
 
-  node->declare_parameter("frame_id");
+  node->declare_parameter("frame_id", frame_id);
   node->get_parameter("frame_id", frame_id);
 
-  node->declare_parameter("ignore_array");
+  node->declare_parameter("ignore_array", list);
   node->get_parameter("ignore_array", list);
 
-  node->declare_parameter("baudrate");
+  node->declare_parameter("baudrate", baudrate);
   node->get_parameter("baudrate", baudrate);
 
-  node->declare_parameter("samp_rate");
+  node->declare_parameter("samp_rate", samp_rate);
   node->get_parameter("samp_rate", samp_rate);
 
-  node->declare_parameter("resolution_fixed");
+  node->declare_parameter("resolution_fixed", resolution_fixed);
   node->get_parameter("resolution_fixed", resolution_fixed);
 
-  node->declare_parameter("singleChannel");
+  node->declare_parameter("singleChannel", m_singleChannel);
   node->get_parameter("singleChannel", m_singleChannel);
 
-  node->declare_parameter("auto_reconnect");
+  node->declare_parameter("auto_reconnect", auto_reconnect);
   node->get_parameter("auto_reconnect", auto_reconnect);
 
-  node->declare_parameter("reversion");
+  node->declare_parameter("reversion", reversion);
   node->get_parameter("reversion", reversion);
 
-  node->declare_parameter("isToFLidar");
+  node->declare_parameter("isToFLidar", m_isToFLidar);
   node->get_parameter("isToFLidar", m_isToFLidar);
 
-  node->declare_parameter("angle_max");
+  node->declare_parameter("angle_max", angle_max);
   node->get_parameter("angle_max", angle_max);
 
-  node->declare_parameter("angle_min");
+  node->declare_parameter("angle_min", angle_min);
   node->get_parameter("angle_min", angle_min);
 
-  node->declare_parameter("max_range");
+  node->declare_parameter("max_range", max_range);
   node->get_parameter("max_range", max_range);
 
-  node->declare_parameter("min_range");
+  node->declare_parameter("min_range", min_range);
   node->get_parameter("min_range", min_range);
 
-  node->declare_parameter("frequency");
+  node->declare_parameter("frequency", frequency);
   node->get_parameter("frequency", frequency);
 
 
