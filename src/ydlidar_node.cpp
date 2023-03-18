@@ -59,18 +59,18 @@ int main(int argc, char *argv[]) {
 
   auto node = rclcpp::Node::make_shared("ydlidar_node");
   std::string port = "/dev/ttyUSB0";
-  int baudrate = 128000;
+  int baudrate = 230400;
   std::string frame_id = "laser_frame";
   bool reversion = false;
   bool resolution_fixed = true;
   bool auto_reconnect = true;
   double angle_max = 180;
   double angle_min = -180;
-  int samp_rate = 5;
+  int samp_rate = 9;
   std::string list = "";
-  double max_range = 10.0;
-  double min_range = 0.12;
-  double frequency = 10.0;
+  double max_range = 16.0;
+  double min_range = 0.26;
+  double frequency = 12.0;
   bool m_singleChannel = false;
   bool m_isToFLidar = false;
   bool m_Inverted = false;
